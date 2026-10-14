@@ -1,0 +1,245 @@
+:root {
+  color-scheme: dark;
+  --bg: #0c0c0c;
+  --card: #161616;
+  --line: rgba(255, 255, 255, 0.1);
+  --muted: rgba(255, 255, 255, 0.58);
+  --faint: rgba(255, 255, 255, 0.38);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  min-height: 100svh;
+  overflow-x: hidden;
+  color: #f4f4f4;
+  font-family: Inter, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 18%, rgba(255, 255, 255, 0.045) 18%, transparent 18.08%),
+    linear-gradient(90deg, transparent 82%, rgba(255, 255, 255, 0.045) 82%, transparent 82.08%);
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+::selection {
+  background: #f4f4f4;
+  color: #111;
+}
+
+:focus-visible {
+  outline: 2px solid #f4f4f4;
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.books {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.book {
+  position: absolute;
+  width: 200px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.b1 { top: -46px; left: 5%; width: 210px; transform: rotate(-16deg); }
+.b2 { top: -54px; right: 6%; width: 220px; transform: rotate(13deg); }
+.b3 { top: 30%; left: -40px; width: 210px; transform: rotate(-8deg); }
+.b4 { top: 26%; right: -34px; width: 220px; transform: rotate(9deg); }
+.b5 { bottom: -56px; left: 7%; width: 200px; transform: rotate(11deg); }
+.b6 { bottom: -48px; right: 6%; width: 210px; transform: rotate(-12deg); }
+
+.stage {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4.5rem 1.25rem;
+  text-align: center;
+}
+
+.brand {
+  margin-bottom: 1.1rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 11ch;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(3rem, 8vw, 4.4rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+h1 em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.sub {
+  max-width: 36ch;
+  margin-top: 1.15rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.invite {
+  margin-top: 0.75rem;
+  color: #f4f4f4;
+  font-size: 0.9rem;
+}
+
+.card {
+  width: min(100%, 360px);
+  margin-top: 2rem;
+  padding: 0.7rem;
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.card input {
+  width: 100%;
+  height: 48px;
+  border: 0;
+  border-radius: 12px;
+  background: #101010;
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: #f4f4f4;
+  font-size: 0.95rem;
+  padding: 0 14px;
+}
+
+.card input::placeholder {
+  color: var(--faint);
+}
+
+.card input:-webkit-autofill {
+  -webkit-text-fill-color: #f4f4f4;
+  caret-color: #f4f4f4;
+  box-shadow: 0 0 0 1000px #101010 inset;
+}
+
+#submit-btn,
+.copy {
+  width: 100%;
+  height: 48px;
+  margin-top: 0.55rem;
+  border: 0;
+  border-radius: 12px;
+  background: #f4f4f4;
+  color: #111;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#submit-btn:hover,
+.copy:hover {
+  background: #fff;
+}
+
+#submit-btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.copy .label-done { display: none; }
+.copy.is-copied .label-idle { display: none; }
+.copy.is-copied .label-done { display: inline; }
+
+.form-error {
+  margin-top: 0.55rem;
+  color: #e7b4ae;
+  font-size: 0.85rem;
+}
+
+.form-error:empty { display: none; }
+
+.shares {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+}
+
+.share {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 0.75rem;
+  border-radius: 999px;
+  color: var(--muted);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--line);
+  text-decoration: none;
+  font-size: 0.78rem;
+}
+
+.share:hover {
+  color: #f4f4f4;
+}
+
+@media (max-width: 900px) {
+  .b3, .b4 { display: none; }
+  .book { width: 128px; }
+}
+
+@media (max-width: 520px) {
+  h1 { font-size: 2.7rem; }
+  .stage { padding: 3rem 1rem; }
+  .b5, .b6 { display: none; }
+}

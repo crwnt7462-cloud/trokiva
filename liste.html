@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tu es sur la liste — Trokiva</title>
+  <meta name="theme-color" content="#0c0c0c">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    try {
+      var raw = localStorage.getItem("trokiva.waitlist.v1");
+      if (!raw || !JSON.parse(raw).current) location.replace("index.html");
+    } catch (e) {
+      location.replace("index.html");
+    }
+  </script>
+</head>
+<body data-page="in">
+  <div class="books" aria-hidden="true">
+    <img class="book b1" src="assets/covers/alice.jpg" alt="">
+    <img class="book b2" src="assets/covers/verne.jpg" alt="">
+    <img class="book b3" src="assets/covers/sherlock.jpg" alt="">
+    <img class="book b4" src="assets/covers/dracula.jpg" alt="">
+    <img class="book b5" src="assets/covers/baskervilles.jpg" alt="">
+    <img class="book b6" src="assets/covers/dracula-us.jpg" alt="">
+  </div>
+  <main class="stage">
+    <p class="brand">Trokiva</p>
+    <h1>Tu es <em>sur la liste.</em></h1>
+    <p class="sub">Ta place est réservée. Envoie le lien à quelqu’un qui lit.</p>
+    <div class="card">
+      <div class="ref">
+        <label class="sr-only" for="ref-link">Lien d’invitation</label>
+        <input id="ref-link" type="text" readonly>
+      </div>
+      <button class="copy" id="copy" type="button" aria-label="Copier le lien d’invitation">
+        <span class="label-idle">Copier le lien</span>
+        <span class="label-done">Lien copié</span>
+      </button>
+      <p id="copy-status" class="sr-only" role="status"></p>
+      <div class="shares">
+        <a class="share share-x" id="share-x" href="https://twitter.com/intent/tweet" target="_blank" rel="noopener noreferrer">X</a>
+        <a class="share share-wa" id="share-wa" href="https://wa.me/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a class="share share-fb" id="share-fb" href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </div>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>
